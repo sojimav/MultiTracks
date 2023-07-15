@@ -27,14 +27,14 @@ public partial class PageToSync_artistDetails : System.Web.UI.Page
 
 		//var filteredList = artistList.Where(row => row.);
 
-		if (artistList != null && artistData.Rows.Count > 0)
-		{
-			string artistName = artistData.Rows[0]["ArtistName"].ToString();
-			string imageUrl = artistData.Rows[0]["ImageUrl"].ToString();
+		//if (artistList != null && artistData.Rows.Count > 0)
+		//{
+		//	string artistName = artistData.Rows[0]["ArtistName"].ToString();
+		//	string imageUrl = artistData.Rows[0]["ImageUrl"].ToString();
 
-			//lblArtistName.Text = artistName;
-			//imgArtist.ImageUrl = imageUrl;
-		}
+		//	//lblArtistName.Text = artistName;
+		//	//imgArtist.ImageUrl = imageUrl;
+		//}
 
 
 	}

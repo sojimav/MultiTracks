@@ -9,7 +9,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "multitracks.com", "Web\multitracks.com\multitracks.com\", "{87ED2C8E-902B-4400-A71A-41BFF7B98F13}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
-		ProjectReferences = "{564e4868-9dc3-4750-a05a-337a0ec7d421}|MTDataAccess.dll;{C0455F77-4C86-44AB-A96F-FD433BA1C3BB}|Assessment.dll;"
+		ProjectReferences = "{564e4868-9dc3-4750-a05a-337a0ec7d421}|MTDataAccess.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_56916"
 		Debug.AspNetCompiler.PhysicalPath = "Web\multitracks.com\multitracks.com\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56916\"

@@ -69,11 +69,5 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\DB\MultiTracksDB.sqlproj">
-      <Project>{c0455f77-4c86-44ab-a96f-fd433ba1c3bb}</Project>
-      <Name>MultiTracksDB</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
