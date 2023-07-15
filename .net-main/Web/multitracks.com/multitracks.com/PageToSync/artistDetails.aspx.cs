@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 
 
 public partial class PageToSync_artistDetails : System.Web.UI.Page
@@ -25,17 +27,16 @@ public partial class PageToSync_artistDetails : System.Web.UI.Page
 
 		List<dynamic> artistList = artistData.ToDynamic().ToList();
 
-		//var filteredList = artistList.Where(row => row.);
-
-		//if (artistList != null && artistData.Rows.Count > 0)
-		//{
-		//	string artistName = artistData.Rows[0]["ArtistName"].ToString();
-		//	string imageUrl = artistData.Rows[0]["ImageUrl"].ToString();
-
-		//	//lblArtistName.Text = artistName;
-		//	//imgArtist.ImageUrl = imageUrl;
-		//}
-
-
+		var filteredList = artistList.Where(rows => rows.artistID == artistID).Select(rows => new ArtistDetails
+		{
+			ArtistId = rows.artistID,
+			DateCreation = rows.dateCreation,
+			Title = rows.title,
+			BioGraphy = rows.biography,
+			ImgUrl = rows.imageURL,
+			heroUrl = rows.heroURL,
+		}).ToList();		
+		 		
+	
 	}
 }
