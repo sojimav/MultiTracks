@@ -1,0 +1,7 @@
+﻿CREATE PROCEDURE [dbo].[GetAlbum]
+	
+AS
+BEGIN
+	SELECT * FROM dbo.Album;
+END
+RETURN 0

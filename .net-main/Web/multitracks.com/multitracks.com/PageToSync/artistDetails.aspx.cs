@@ -24,38 +24,37 @@ public partial class PageToSync_artistDetails : System.Web.UI.Page
 
 		// Call the necessary methods to retrieve data using the SQL object
 		DataTable artistData = dbHelper.ExecuteStoredProcedureDT("dbo.GetArtistDetails", true);
+		var artistAlbum = dbHelper.ExecuteStoredProcedureDT("dbo.GetAlbum", true);
 		
 		dbHelper.CloseConnection();
 		List<dynamic> artistList = artistData.ToDynamic().ToList();
+		List<dynamic> album = artistAlbum.ToDynamic().ToList();
 
 		var filteredList = artistList.FirstOrDefault(rows => Convert.ToString(rows.artistID) == artistID);
+		var filteredAlbum = album.Where(row => Convert.ToString(row.artistID) == artistID).ToList();
 
 		
 
 		if (artistID != null)
 		{
 			string artistTitle = filteredList.title;
-			string biography  = filteredList.biography;	
+			string imageurl = filteredList.imageURL;
+			string herourl = filteredList.heroURL;
+			string biography  = filteredList.biography;
+			//albumRepeater.DataSource = filteredAlbum;
+			//albumRepeater.DataBind();
 			//string imageUrl = filteredList.imageUrl;
 
 			// Use the retrieved values to populate your page controls
 			lblTitle.Text = artistTitle;
 			lblbiography.Text = biography;
+			imgArtist.ImageUrl = imageurl;
+		     imgHero.ImageUrl = herourl;
 			//imgArtist.ImageUrl = imageUrl;
 		}
-	
-		//else
-		//	{
-		//		// Throw a custom exception with a specific error message
-		//		throw new HttpException(404, "Page Not Found - Artist Not Found");
-		//	}
 
 
 
-			////lblTitle.Text = artistData[0][Title]
 
-			//lblTitle.Text = (string)result["Title"]; /*(string)artistData.Rows[0]["Title"];*/
-
-
-		}
+	}
 }

@@ -30,17 +30,12 @@
 				<div class="details-banner">
 					<div class="details-banner--overlay"></div>
 					<div class="details-banner--hero">
-						<img class="details-banner--hero--img" src="./img/31.jpg" 
-						srcset="./img/31.jpg, 
-						./img/31.jpg 2x" alt="Bethel Music">
+					 <asp:Image ID="imgHero" runat="server" class="details-banner--hero--img" AlternateText="Bethel Music" />
+						
 					</div>
 					<div class="details-banner--info">
 						<a href="#" class="details-banner--info--box">
-								<img class="details-banner--info--box--img"
-								 src="./img/174.jpg"
-								 srcset="./img/174-sm.jpg,
-								 			./img/174.jpg 2x"
-							     alt="alt">
+						 <asp:Image ID="imgArtist" runat="server" class="details-banner--info--box--img"/>
 						</a>
 						<h1 class="details-banner--info--name"><a class="details-banner--info--name--link" href="#"><asp:Label ID="lblTitle" runat="server" /></a></h1>
 						
@@ -189,74 +184,27 @@
 											<a class="discovery--section--header--view-all" href="/artists/default.aspx">View All</a>
 										</div><!-- /.discovery-select -->
 
+
+									           	<%--Album Section--%>
+
 										<div class="discovery--grid-holder">
 
 											<div class="ly-grid ly-grid-cranberries">
-
-												<div class="media-item">
-													<a class="media-item--img--link" href="#" tabindex="0">
-														<img class="media-item--img" alt="Reckless Love" src="./img/210.jpg" srcset="./img/210.jpg, ./img/210.jpg 2x">
-														<span class="image-tag">Master</span>
-													</a>
-													<a class="media-item--title" href="#" tabindex="0">Reckless Love</a>
-													<a class="media-item--subtitle" href="#" tabindex="0">Cory Asbury</a>
-												</div>
-												<div class="media-item">
-													<a class="media-item--img--link" href="#" tabindex="0">
-														<img class="media-item--img" alt="Reckless Love" src="./img/210.jpg" srcset="./img/210.jpg, ./img/210.jpg 2x">
-														<span class="image-tag">Master</span>
-													</a>
-													<a class="media-item--title" href="#" tabindex="0">Reckless Love</a>
-													<a class="media-item--subtitle" href="#" tabindex="0">Cory Asbury</a>
-												</div>
-												<div class="media-item">
-													<a class="media-item--img--link" href="#" tabindex="0">
-														<img class="media-item--img" alt="Reckless Love" src="./img/210.jpg" srcset="./img/210.jpg, ./img/210.jpg 2x">
-														<span class="image-tag">Master</span>
-													</a>
-													<a class="media-item--title" href="#" tabindex="0">Reckless Love</a>
-													<a class="media-item--subtitle" href="#" tabindex="0">Cory Asbury</a>
-												</div>
-												<div class="media-item">
-													<a class="media-item--img--link" href="#" tabindex="0">
-														<img class="media-item--img" alt="Reckless Love" src="./img/210.jpg" srcset="./img/210.jpg, ./img/210.jpg 2x">
-														<span class="image-tag">Master</span>
-													</a>
-													<a class="media-item--title" href="#" tabindex="0">Reckless Love</a>
-													<a class="media-item--subtitle" href="#" tabindex="0">Cory Asbury</a>
-												</div>
-												<div class="media-item">
-													<a class="media-item--img--link" href="#" tabindex="0">
-														<img class="media-item--img" alt="Reckless Love" src="./img/210.jpg" srcset="./img/210.jpg, ./img/210.jpg 2x">
-														<span class="image-tag">Master</span>
-													</a>
-													<a class="media-item--title" href="#" tabindex="0">Reckless Love</a>
-													<a class="media-item--subtitle" href="#" tabindex="0">Cory Asbury</a>
-												</div>
-												<div class="media-item">
-													<a class="media-item--img--link" href="#" tabindex="0">
-														<img class="media-item--img" alt="Reckless Love" src="./img/210.jpg" srcset="./img/210.jpg, ./img/210.jpg 2x">
-														<span class="image-tag">Master</span>
-													</a>
-													<a class="media-item--title" href="#" tabindex="0">Reckless Love</a>
-													<a class="media-item--subtitle" href="#" tabindex="0">Cory Asbury</a>
-												</div>
-												<div class="media-item">
-													<a class="media-item--img--link" href="#" tabindex="0">
-														<img class="media-item--img" alt="Reckless Love" src="./img/210.jpg" srcset="./img/210.jpg, ./img/210.jpg 2x">
-														<span class="image-tag">Master</span>
-													</a>
-													<a class="media-item--title" href="#" tabindex="0">Reckless Love</a>
-													<a class="media-item--subtitle" href="#" tabindex="0">Cory Asbury</a>
-												</div>
-												<div class="media-item">
-													<a class="media-item--img--link" href="#" tabindex="0">
-														<img class="media-item--img" alt="Reckless Love" src="./img/210.jpg" srcset="./img/210.jpg, ./img/210.jpg 2x">
-														<span class="image-tag">Master</span>
-													</a>
-													<a class="media-item--title" href="#" tabindex="0">Reckless Love</a>
-													<a class="media-item--subtitle" href="#" tabindex="0">Cory Asbury</a>
-												</div>
+												<asp:Repeater ID ="albumRepeater" runat="server">
+													<ItemTemplate>
+														 <div class="media-item">
+														<a class="media-item--img--link" href="#" tabindex="0">
+															<img class="media-item--img" alt="Reckless Love" src="<%# Eval("imageURL") %>" <%--srcset="./img/210.jpg, ./img/210.jpg 2x--%>">
+															<span class="image-tag">Master</span>
+														</a>
+														<a class="media-item--title" href="#" tabindex="0"><%--Reckless Love--%> <%# Eval("title") %></a>
+														<a class="media-item--subtitle" href="#" tabindex="0">Cory Asbury</a>
+													</div>
+													</ItemTemplate>
+													
+												</asp:Repeater>--%>
+												
+											
 											</div><!-- /.grid -->
 										</div><!-- /.discovery-grid-holder -->
 									</section><!-- /.songs-section -->
